@@ -1,0 +1,13 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %}
+Recepies: {{ object.title }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ object.title }}</h1>
+    <div class='body'>
+         <p align="justify">{{ object.description }}</p>
+    </div>
+{% endblock %}
+

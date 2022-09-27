@@ -1,0 +1,23 @@
+{% extends 'recipes/base.html' %}
+
+{% block title %}
+Recipes
+{% endblock %}
+
+{% block content %}
+    <h1>U r doing great</h1>
+    {% if add %}
+        {% for l in add %}
+            <div class="alert alert-warning mt-2 messeg">
+                <h2>{{ l.title }}</h2>
+                <p>{{ l.description|truncatechars:150 }}</p>
+
+            </div>
+            <p class="link-read-post read"><a href="{% url 'post' l.pk %}">Read this one</a></p>
+        {% endfor %}
+    {% else %}
+        <h4>You don`t have one</h4>
+    {% endif %}
+
+{% endblock %}
+
