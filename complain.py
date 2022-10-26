@@ -47,7 +47,7 @@ def some(message):
 
 @bot.message_handler(commands=['sendmessage'])
 def msg_from_bot(message):
-    if message.from_user.id == admin:
+    if str(message.from_user.id) == admin:
         send = bot.send_message(message.from_user.id, 'Введите сообщение')
         bot.register_next_step_handler(send, msg_from_bot1)
     else:
@@ -60,7 +60,7 @@ def msg_from_bot1(message):
 
 @bot.message_handler(commands=['viewallusers'])
 def viewall(message):
-    if message.from_user.id == admin:
+    if str(message.from_user.id) == admin:
         for i, l in user_dict.items():
             bot.send_message(message.from_user.id, f'{i}:{",".join(l)}')
     else:
@@ -68,7 +68,7 @@ def viewall(message):
 
 @bot.message_handler(commands=['addtoblacklist'])
 def addtobl(message):
-    if message.from_user.id == admin:
+    if str(message.from_user.id) == admin:
         send = bot.send_message(message.from_user, 'Введите user id')
         bot.register_next_step_handler(send, addtobl1)
     else:
@@ -81,7 +81,7 @@ def addtobl1(message):
 
 @bot.message_handler(commands=['removefromblacklist'])
 def rembl(message):
-    if message.from_user.id == admin:
+    if str(message.from_user.id) == admin:
         send = bot.send_message(message.from_user.id, 'Введите user id')
         bot.register_next_step_handler(send, rembl1)
     else:
